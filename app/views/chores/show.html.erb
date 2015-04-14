@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>What to do:</strong>
+  <%= @chore.what_to_do %>
+</p>
+
+<p>
+  <strong>How long time spend:</strong>
+  <%= @chore.how_long_time_spend %>
+</p>
+
+<p>
+  <strong>When do it:</strong>
+  <%= @chore.when_do_it %>
+</p>
+
+<p>
+  <strong>Who do it:</strong>
+  <%= @chore.who_do_it %>
+</p>
+
+<%= link_to 'Edit', edit_chore_path(@chore) %> |
+<%= link_to 'Back', chores_path %>

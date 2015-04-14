@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  what_to_do: MyString
+  how_long_time_spend: MyString
+  when_do_it: 2015-04-14 16:08:08
+  who_do_it: MyString
+
+two:
+  what_to_do: MyString
+  how_long_time_spend: MyString
+  when_do_it: 2015-04-14 16:08:08
+  who_do_it: MyString
