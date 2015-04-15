@@ -17,15 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :how_long_time_spend %><br>
-    <%= f.text_field :how_long_time_spend %>
+    <%= f.text_field :how_long_time_spend %>Minutes
   </div>
   <div class="field">
     <%= f.label :when_do_it %><br>
     <%= f.datetime_select :when_do_it %>
   </div>
   <div class="field">
-    <%= f.label :who_do_it %><br>
-    <%= f.text_field :who_do_it %>
+    <%= f.label :family_id %><br>
+    <%= f.collection_select :family_id, Family.all, :id, :relation, include_blank:true %>
   </div>
   <div class="actions">
     <%= f.submit %>

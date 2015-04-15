@@ -17,7 +17,7 @@
 
 <p>
   <strong>Who do it:</strong>
-  <%= @chore.who_do_it %>
+  <%= @chore.family.try(:name) %>
 </p>
 
 <%= link_to 'Edit', edit_chore_path(@chore) %> |

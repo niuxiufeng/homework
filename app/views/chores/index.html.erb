@@ -19,7 +19,7 @@
         <td><%= chore.what_to_do %></td>
         <td><%= chore.how_long_time_spend %></td>
         <td><%= chore.when_do_it %></td>
-        <td><%= chore.who_do_it %></td>
+        <td><%= chore.family.try(:name) %></td>
         <td><%= link_to 'Show', chore %></td>
         <td><%= link_to 'Edit', edit_chore_path(chore) %></td>
         <td><%= link_to 'Destroy', chore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,3 +31,5 @@
 <br>
 
 <%= link_to 'New Chore', new_chore_path %>
+<br/>
+<%= link_to 'New family', new_family_path %>

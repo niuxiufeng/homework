@@ -69,6 +69,6 @@ class ChoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chore_params
-      params.require(:chore).permit(:what_to_do, :how_long_time_spend, :when_do_it, :who_do_it)
+      params.require(:chore).permit(:what_to_do, :how_long_time_spend, :when_do_it, :family_id)
     end
 end

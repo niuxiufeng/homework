@@ -11,15 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414070808) do
+ActiveRecord::Schema.define(version: 20150415065141) do
 
   create_table "chores", force: :cascade do |t|
     t.string   "what_to_do"
-    t.string   "how_long_time_spend"
+    t.integer  "how_long_time_spend", default: 0
     t.datetime "when_do_it"
-    t.string   "who_do_it"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string   "family_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "done"
+    t.datetime "done_time"
+  end
+
+  add_index "chores", ["family_id"], name: "index_chores_on_family_id"
+
+  create_table "families", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "birth"
+    t.string   "relation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
