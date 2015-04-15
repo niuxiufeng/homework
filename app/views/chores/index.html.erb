@@ -1,35 +1,46 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Chores</h1>
-
-<table>
+<%- model_class = Chore -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>What to do</th>
-      <th>How long time spend</th>
-      <th>When do it</th>
-      <th>Who do it</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:what_to_do) %></th>
+      <th><%= model_class.human_attribute_name(:how_long_time_spend) %></th>
+      <th><%= model_class.human_attribute_name(:when_do_it) %></th>
+      <th><%= model_class.human_attribute_name(:family_id) %></th>
+      <th><%= model_class.human_attribute_name(:done) %></th>
+      <th><%= model_class.human_attribute_name(:done_time) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @chores.each do |chore| %>
       <tr>
+        <td><%= link_to chore.id, chore_path(chore) %></td>
         <td><%= chore.what_to_do %></td>
         <td><%= chore.how_long_time_spend %></td>
         <td><%= chore.when_do_it %></td>
-        <td><%= chore.family.try(:name) %></td>
-        <td><%= link_to 'Show', chore %></td>
-        <td><%= link_to 'Edit', edit_chore_path(chore) %></td>
-        <td><%= link_to 'Destroy', chore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= chore.family_id %></td>
+        <td><%= chore.done %></td>
+        <td><%= chore.done_time %></td>
+        <td><%=l chore.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_chore_path(chore), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      chore_path(chore),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Chore', new_chore_path %>
-<br/>
-<%= link_to 'New family', new_family_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_chore_path,
+            :class => 'btn btn-primary' %>

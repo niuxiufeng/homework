@@ -1,24 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Chore -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>What to do:</strong>
-  <%= @chore.what_to_do %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:what_to_do) %>:</strong></dt>
+  <dd><%= @chore.what_to_do %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:how_long_time_spend) %>:</strong></dt>
+  <dd><%= @chore.how_long_time_spend %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:when_do_it) %>:</strong></dt>
+  <dd><%= @chore.when_do_it %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:family_id) %>:</strong></dt>
+  <dd><%= @chore.family_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:done) %>:</strong></dt>
+  <dd><%= @chore.done %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:done_time) %>:</strong></dt>
+  <dd><%= @chore.done_time %></dd>
+</dl>
 
-<p>
-  <strong>How long time spend:</strong>
-  <%= @chore.how_long_time_spend %>
-</p>
-
-<p>
-  <strong>When do it:</strong>
-  <%= @chore.when_do_it %>
-</p>
-
-<p>
-  <strong>Who do it:</strong>
-  <%= @chore.family.try(:name) %>
-</p>
-
-<%= link_to 'Edit', edit_chore_path(@chore) %> |
-<%= link_to 'Back', chores_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              chores_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_chore_path(@chore), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              chore_path(@chore),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

@@ -1,22 +1,18 @@
-<%= simple_form_for @chore do |f| %>
+<%= simple_form_for @chore, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :what_to_do %>
+  <%= error_span(@chore[:what_to_do]) %>
+  <%= f.input :how_long_time_spend %>
+  <%= error_span(@chore[:how_long_time_spend]) %>
+  <%= f.input :when_do_it %>
+  <%= error_span(@chore[:when_do_it]) %>
+  <%= f.input :family_id %>
+  <%= error_span(@chore[:family_id]) %>
+  <%= f.input :done %>
+  <%= error_span(@chore[:done]) %>
+  <%= f.input :done_time %>
+  <%= error_span(@chore[:done_time]) %>
 
-  <div class="field">
-    <%= f.label :what_to_do %><br>
-    <%= f.input :what_to_do , label:false%>
-  </div>
-  <div class="field">
-    <%= f.label :how_long_time_spend %><br>
-    <%= f.input :how_long_time_spend, label:false %>Minutes
-  </div>
-  <div class="field">
-    <%= f.label :when_do_it %><br>
-    <%= f.input :when_do_it, as: :datetime, label:false %>
-  </div>
-  <div class="field">
-    <%= f.label :family_id %><br>
-    <%= f.association :family, collection: Family.all, prompt: "Choose a family" , label:false%>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                chores_path, :class => 'btn btn-default' %>
 <% end %>
