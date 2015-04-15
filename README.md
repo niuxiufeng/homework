@@ -2,7 +2,9 @@
 
 Record homework
 
-discribe the chore`s detail
+add family
+
+describe the chore`s detail
 
 who does it
 
