@@ -1,31 +1,20 @@
-<%= form_for(@chore) do |f| %>
-  <% if @chore.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@chore.errors.count, "error") %> prohibited this chore from being saved:</h2>
-
-      <ul>
-      <% @chore.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for @chore do |f| %>
 
   <div class="field">
     <%= f.label :what_to_do %><br>
-    <%= f.text_field :what_to_do %>
+    <%= f.input :what_to_do , label:false%>
   </div>
   <div class="field">
     <%= f.label :how_long_time_spend %><br>
-    <%= f.text_field :how_long_time_spend %>Minutes
+    <%= f.input :how_long_time_spend, label:false %>Minutes
   </div>
   <div class="field">
     <%= f.label :when_do_it %><br>
-    <%= f.datetime_select :when_do_it %>
+    <%= f.input :when_do_it, as: :datetime, label:false %>
   </div>
   <div class="field">
     <%= f.label :family_id %><br>
-    <%= f.collection_select :family_id, Family.all, :id, :relation, include_blank:true %>
+    <%= f.association :family, collection: Family.all, prompt: "Choose a family" , label:false%>
   </div>
   <div class="actions">
     <%= f.submit %>
