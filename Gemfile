@@ -32,11 +32,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# about stylesheet
 gem 'simple_form'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'sprockets'
+gem 'font-awesome-rails'              # Font-awesome (icon)
+
 
 
 group :development, :test do
