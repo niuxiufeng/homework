@@ -1,20 +1,35 @@
 <%= simple_form_for @chore, :html => { :class => 'form-horizontal' } do |f| %>
     <td></td>
 
-    <%= f.input :what_to_do, :label=>false %>
+    <div class="w40p panel-body ">
+    <%= f.input :what_to_do,  :input_html=>{:class=>"form-control" } %>
     <%= error_span(@chore[:what_to_do]) %>
-    <%= f.input :how_long_time_spend, :label=>false%>
+      </div>
+    <div class="w40p panel-body ">
+    <%= f.input :how_long_time_spend,  :input_html=>{:class=>"form-control" }%>
     <%= error_span(@chore[:how_long_time_spend]) %>
-    <%= f.input :when_do_it, :label=>false%>
+    </div>
+    <div class="w40p panel-body ">
+      <%=f.label :when_do_it %><br/>
+      <%= f.input_field :when_do_it, as: :string, :class=>"datepicker"  %>
     <%= error_span(@chore[:when_do_it]) %>
-    <%= f.input :family_id, :label=>false %>
+    </div>
+    <div class="w40p panel-body ">
+    <%= f.input :family_id,  :input_html=>{:class=>"form-control" } %>
     <%= error_span(@chore[:family_id]) %>
-    <%= f.input :done, :label=>false %>
+    </div>
+    <div class="w40p panel-body ">
+    <%= f.input :done,  :input_html=>{:class=>"form-control" } %>
     <%= error_span(@chore[:done]) %>
-    <%= f.input :done_time, :label=>false %>
+    </div>
+    <div class="w40p panel-body ">
+    <%= f.input :done_time,  :input_html=>{:class=>"form-control" } %>
     <%= error_span(@chore[:done_time]) %>
+    </div>
+    <div class="panel-body ">
 
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 chores_path, :class => 'btn btn-default' %>
+        </div>
 <% end %>

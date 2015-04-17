@@ -41,6 +41,12 @@
   </tbody>
 </table>
 
+<div class="panel-body">
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_chore_path,
             :class => 'btn btn-primary' %>
+
+  <%= link_to 'new family member',
+              new_family_path,
+              :class => 'btn btn-info' %>
+    </div>

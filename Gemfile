@@ -34,12 +34,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # about stylesheet
 gem 'simple_form'
-gem 'therubyracer'
-gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'sprockets'
 gem 'font-awesome-rails'              # Font-awesome (icon)
-
+gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do

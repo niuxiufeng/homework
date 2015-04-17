@@ -15,3 +15,15 @@
 #= require twitter/bootstrap
 #= require turbolinks
 #= require_tree .
+#= require bootstrap-datepicker
+
+$(document).ready ->
+  $('.datepicker').datepicker(
+    {
+      format: "yyyy/mm/dd",
+      startView: 1
+      clearBtn: true,
+      orientation: "top auto",
+      autoclose: true
+    }
+  )

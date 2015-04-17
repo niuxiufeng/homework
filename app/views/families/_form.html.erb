@@ -1,19 +1,26 @@
-<%= simple_form_for(@family) do |f| %>
+<%= simple_form_for @family, :html => { :class => 'default_class' } do |f| %>
 
+    <div class="w40p panel-body ">
+      <%= f.input :name , :input_html=>{:class=>"form-control" }%>
+      <%= error_span(@family[:name]) %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.input :name, :label=>false %>
-  </div>
-  <div class="field">
-    <%= f.label :birth %><br>
-    <%= f.input :birth, as: :date , :label=>false%>
-  </div>
-  <div class="field">
-    <%= f.label :relation %><br>
-    <%= f.input :relation, :label=>false %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="w40p panel-body">
+      <%=f.label :birth %><br/>
+      <%= f.input_field :birth, as: :string, :class=>"datepicker"  %>
+      <%= error_span(@family[:birth]) %>
+    </div>
+
+    <div class="w40p panel-body ">
+      <%= f.input :relation, :input_html=>{:class=>"form-control" } %>
+      <%= error_span(@family[:relation]) %>
+    </div>
+
+    <div class="panel-body">
+      <%= f.button :submit, :class => 'btn-primary' %>
+
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  families_path, :class => 'btn btn-default' %>
+    </div>
+
 <% end %>
