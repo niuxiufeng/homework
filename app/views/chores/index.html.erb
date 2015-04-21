@@ -20,7 +20,7 @@
     <% @chores.each do |chore| %>
       <tr>
         <td><%= link_to chore.id, chore_path(chore) %></td>
-        <td><%= chore.what_to_do %></td>
+        <td><%=link_to chore.what_to_do,chore, :class=>'' %></td>
         <td><%= chore.how_long_time_spend %></td>
         <td><%= chore.when_do_it %></td>
         <td><%= chore.family_id %></td>

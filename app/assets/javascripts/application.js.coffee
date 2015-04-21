@@ -18,6 +18,7 @@
 #= require bootstrap-datepicker
 
 $(document).ready ->
+  #alert($('.datepicker'))
   $('.datepicker').datepicker(
     {
       format: "yyyy/mm/dd",
@@ -27,3 +28,4 @@ $(document).ready ->
       autoclose: true
     }
   )
+

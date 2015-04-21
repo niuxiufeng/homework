@@ -7,15 +7,15 @@
   <dt><strong><%= model_class.human_attribute_name(:what_to_do) %>:</strong></dt>
   <dd><%= @chore.what_to_do %></dd>
   <dt><strong><%= model_class.human_attribute_name(:how_long_time_spend) %>:</strong></dt>
-  <dd><%= @chore.how_long_time_spend %></dd>
+  <dd><%= @chore.how_long_time_spend %> Minutes</dd>
   <dt><strong><%= model_class.human_attribute_name(:when_do_it) %>:</strong></dt>
-  <dd><%= @chore.when_do_it %></dd>
+  <dd><%= @chore.when_do_it.strftime('%Y-%m-%d %H:%M:%S') if @chore.when_do_it.present? %></dd>
   <dt><strong><%= model_class.human_attribute_name(:family_id) %>:</strong></dt>
   <dd><%= @chore.family_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:done) %>:</strong></dt>
   <dd><%= @chore.done %></dd>
   <dt><strong><%= model_class.human_attribute_name(:done_time) %>:</strong></dt>
-  <dd><%= @chore.done_time %></dd>
+  <dd><%= @chore.done_time.strftime('%Y-%m-%d %H:%M:%S') if @chore.done_time.present? %></dd>
 </dl>
 
 <div class="panel-body">

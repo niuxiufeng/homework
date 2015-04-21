@@ -15,9 +15,10 @@
     <%= error_span(@chore[:when_do_it]) %>
     </div>
     <div class="w40p panel-body ">
-    <%= f.input :family_id,  :input_html=>{:class=>"form-control" } %>
-    <%= error_span(@chore[:family_id]) %>
+      <%= f.association :family, collection: Family.all, prompt: "Choose a family", :input_html=>{:class=>"form-control"}  %>
+      <%= error_span(@chore[:family_id]) %>
     </div>
+    <% if false %>
     <div class="w40p panel-body ">
     <%= f.input :done,  :input_html=>{:class=>"form-control" } %>
     <%= error_span(@chore[:done]) %>
@@ -26,8 +27,9 @@
     <%= f.input :done_time,  :input_html=>{:class=>"form-control" } %>
     <%= error_span(@chore[:done_time]) %>
     </div>
-    <div class="panel-body ">
+     <%end%>
 
+    <div class="panel-body ">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 chores_path, :class => 'btn btn-default' %>
