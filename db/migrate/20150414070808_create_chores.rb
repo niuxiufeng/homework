@@ -1,4 +1,4 @@
-class CreateChores < ActiveRecord::Migration
+class CreateChores < ActiveRecord::Migration[4.2]
   def change
     create_table :chores do |t|
       t.string :what_to_do

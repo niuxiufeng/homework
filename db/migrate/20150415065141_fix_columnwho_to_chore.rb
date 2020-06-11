@@ -1,4 +1,4 @@
-class FixColumnwhoToChore < ActiveRecord::Migration
+class FixColumnwhoToChore < ActiveRecord::Migration[4.2]
   def self.up
     rename_column :chores, :who_do_it, :family_id
     add_index "chores", :family_id, name: "index_chores_on_family_id"
